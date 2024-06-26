@@ -13,6 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+use App\Http\Controllers\EventController;
+
+Route::get('/', [EventController::class, 'index']);
+Route::get('/events/create', [EventController::class, 'create']);
+
+Route::get('/contato', function () {
+    return view('contact');
+});
+
+Route::get('/produtos', function () {
+
+    $search = request('search');
+
+    return view('products', ['search' => $search]);
+});
+
+Route::get('/produto_teste/{id}', function ($id = null) {
+    return view('product', ['id' => $id]);
 });
