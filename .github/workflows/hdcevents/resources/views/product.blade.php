@@ -5,7 +5,7 @@
 @section('content')
     
     @if ($id != null)
-        <p>Exibindo produto id: {{$id}}</p>
+        <p>Exibindo produto id: {{ $id }}</p>
     
     @endif
 
