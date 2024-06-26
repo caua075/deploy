@@ -20,5 +20,5 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           source: "dist/"
           target: "/var/www/html/deploy/"
-          port: 8081
+          port: 22
           strip_components: 1
