@@ -17,6 +17,6 @@
         env:
           SSH_PRIVATE_KEY: ${{secrets.EC2_SSH_KEY}}
           SOURCE: "./"
-          REMOTE_HOST: "ec2-35-172-135-151.compute-1.amazonaws.com"
+          REMOTE_HOST: "ec2-18-212-173-131.compute-1.amazonaws.com"
           REMOTE_USER: "ubuntu"
           TARGET: "/var/www/html/deploy"
