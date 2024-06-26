@@ -18,7 +18,7 @@ jobs:
           host: ec2-3-91-145-249.compute-1.amazonaws.com
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
-          source: "dist/"
+          source: "./"
           target: "/var/www/html/deploy/"
           port: 22
           strip_components: 1
