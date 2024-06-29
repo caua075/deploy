@@ -4,45 +4,30 @@
 
 @section('content')
 
-        <h1>Algum título</h1>
-        <img src="/img/banner.jpg" alt="banner">
-            <br>
-        @if(10 > 15)
-            <p>A condição é true</p>
-        @endif
-            
-            <br>
-        <h3>Declaração de variável</h3>
-        <p>{{$nome}}</p>
-            
-            <br>
-        <h3>Estrutura Condicional</h3>
-        @if($nome == 'Lucas')
-            <p>Seu nome é Lucas</p>
-        @elseif($nome == 'Cauã')
-            <p>O nome é {{$nome}}, ele tem {{$idade}} anos e sua profissão é {{$profissao}}</p>
-        @else
-            <p>O nome não é Pedro nem {{$nome}}</p>
-        @endif
+    <div id="search-container" class="col-md-12">
+        <h1>Busque um Evento</h1>
 
-            <br>
-        <h3>Estrutura de Repetição</h3>
-        @for($i = 0; $i < count($arr); $i++)
-            <p>Valor i ={{$i}} / Valor do array na posição i ={{$arr[$i]}}</p>
-            @if ($i == 2)
-                <p>O i é 2</p>
-            @endif
-        @endfor
+        <form action="">
+            <input type="text" id="search" name="search" class="form-control" placeholder="Procurar...">
+        </form>
+    </div>
+    <div id="events-container" class="col-md-12">
+        <h2>Próximos Eventos</h2>
+        <p class="subtitle">Veja os eventos dos próximos dias</p>
+        <div id="cards-container" class="row">
+            @foreach ($events as $event)
+                <div class="card col-md-3">
+                    <img src="/img/event_placeholder.jpg" alt="{{$event->title}}">
+                    <div class="card-body">
+                        <p class="card-date">10/09/2020</p>
+                        <h5 class="card-title">{{$event->title}}</h5>
+                        <p class="card-participants">X Participantes</p>
+                        <a href="#" class="btn btn-primary">Saber Mais</a>
+                    </div>
+                </div>
+            
+            @endforeach
+        </div>
+    </div>
 
-            <br>
-        <h3>Estrutura de Repetição(Foreach)</h3>
-        @foreach ($nomes as $nome)
-            <p>{{$loop->index+1}} - {{$nome}}</p>
-        @endforeach
-            <br>
-        <h3>Código PHP</h3>
-        @php
-            $name = 'Lucas';
-            echo $name;
-        @endphp
 @endsection
