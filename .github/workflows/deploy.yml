@@ -11,10 +11,7 @@ jobs:
     steps:
       - name: Checkout the files
         uses: actions/checkout@v3
-
-      - name: Clean target directory on EC2
-        run: ssh -i ${{ secrets.EC2_SSH_KEY }} ubuntu@ec2-3-88-237-125.compute-1.amazonaws.com 'rm -rf /var/www/html/*'
-
+        
       - name: Copy files to EC2
         uses: appleboy/scp-action@master
         with:
