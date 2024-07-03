@@ -15,7 +15,7 @@ jobs:
       - name: Copy files to EC2
         uses: appleboy/scp-action@master
         with:
-          host: ec2-3-88-237-125.compute-1.amazonaws.com
+          host: ec2-34-201-241-180.compute-1.amazonaws.com
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
           source: "./"
