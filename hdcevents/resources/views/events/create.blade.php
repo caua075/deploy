@@ -11,7 +11,6 @@
             <div class="form-group">
                 <label for="image">Imagem do evento:</label>
                 <input type="file" id="image" name="image" class="form-control-file">
-                <img src="/img/default.jpg" id="image-preview" class="img-thumbnail" alt="Imagem do evento">
             </div>
             <div class="form-group">
                 <label for="title">Evento:</label>
