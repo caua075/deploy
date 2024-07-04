@@ -12,27 +12,12 @@ jobs:
       - name: Checkout the files
         uses: actions/checkout@v3
 
-      - name: Archive files
-        run: tar -czf /tmp/deploy.tar.gz .
-
-      - name: Copy tar file to EC2
+      - name: Copy files to EC2
         uses: appleboy/scp-action@master
         with:
           host: ec2-3-83-80-103.compute-1.amazonaws.com
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
-          source: /tmp/deploy.tar.gz
-          target: /tmp/
+          source: "./"
+          target: "/var/www/html/"
           port: 22
-
-      - name: Extract files on EC2
-        uses: appleboy/ssh-action@master
-        with:
-          host: ec2-3-83-80-103.compute-1.amazonaws.com
-          username: ubuntu
-          key: ${{ secrets.EC2_SSH_KEY }}
-          script: |
-            sudo mkdir -p /var/www/html/
-            sudo tar --overwrite -xzf /tmp/deploy.tar.gz -C /var/www/html/
-            sudo rm /tmp/deploy.tar.gz
-            sudo chown -R www-data:www-data /var/www/html/
